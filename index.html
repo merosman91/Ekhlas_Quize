@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدرسة الإخلاص - التعليم المتميز</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1e40af;
+            --secondary-color: #3b82f6;
+            --accent-color: #60a5fa;
+            --light-color: #eff6ff;
+            --dark-color: #1e3a8a;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --text-color: #1f2937;
+            --text-light: #6b7280;
+            --bg-color: #ffffff;
+            --bg-light: #f9fafb;
+            --border-color: #e5e7eb;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-left: 12px;
+            font-size: 1.3rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 20px 50px;
+            background: linear-gradient(135deg, var(--light-color) 0%, var(--bg-color) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 500px;
+            z-index: 1;
+            display: none; /* Hidden on mobile for better performance */
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0; /* Reduced padding for mobile */
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2rem; /* Smaller font for mobile */
+            font-weight: 800;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: white;
+        }
+
+        .quiz-setup {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .quiz-form {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            display: none; /* Hidden by default */
+        }
+
+        .quiz-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 2rem;
+        }
+
+        .quiz-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: white;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .quiz-body {
+            padding: 2rem 1.5rem; /* Adjusted padding for mobile */
+        }
+
+        .question-container {
+            text-align: right;
+        }
+
+        .question-text {
+            font-size: 1.2rem; /* Adjusted font for mobile */
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .option-item {
+            padding: 1.2rem 2rem;
+            background: var(--bg-light);
+            border: 2px solid transparent;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: right;
+        }
+
+        .option-item:hover {
+            background: white;
+            border-color: var(--primary-color);
+            transform: translateX(-5px);
+        }
+
+        .option-item.selected {
+            background: var(--light-color);
+            border-color: var(--primary-color);
+        }
+
+        .quiz-footer {
+            padding: 1.5rem;
+            background: var(--bg-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+
+        .quiz-result {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            display: none; /* Hidden by default */
+        }
+
+        .result-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .result-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--warning-color), #fbbf24);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .result-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+        }
+
+        .result-score {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            position: relative;
+            border-radius: 50%;
+            background: conic-gradient(var(--success-color) 0deg, var(--light-color) 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #score-percentage {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--success-color);
+            background: white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-item {
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 10px;
+        }
+
+        .detail-item span:first-child {
+            display: block;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-item span:last-child {
+            font-weight: 700;
+            color: var(--dark-color);
+            font-size: 1.2rem;
+        }
+
+        .result-message {
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-description {
+            color: #9ca3af;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .result-details {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .quiz-footer {
+                flex-direction: column;
+            }
+
+            .quiz-footer button {
+                width: 100%;
+            }
+        }
+
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            z-index: 10000;
+            animation: slideDown 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .notification-error { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .notification-success { background: linear-gradient(135deg, #10b981, #059669); }
+        .notification-warning { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .notification-info { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translate(-50%, -20px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+        @keyframes slideUp {
+            from { opacity: 1; transform: translate(-50%, 0); }
+            to { opacity: 0; transform: translate(-50%, -20px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <span class="logo-text">مدرسة الإخلاص</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">الرئيسية</a></li>
+                <li><a href="#about" class="nav-link">من نحن</a></li>
+                <li><a href="#quiz" class="nav-link">الاختبارات</a></li>
+                <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">مرحباً بك في مدرسة الإخلاص</h1>
+            <p class="hero-subtitle">مؤسسة تعليمية رائدة تقدم تعليماً متميزاً لجميع المراحل الدراسية</p>
+            <div class="hero-buttons">
+                <button onclick="scrollToSection('quiz')" class="btn btn-primary">
+                    <i class="fas fa-play"></i> ابدأ الاختبار الآن
+                </button>
+                <button onclick="scrollToSection('about')" class="btn btn-secondary">
+                    <i class="fas fa-info-circle"></i> اعرف المزيد
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">من نحن</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <p class="about-description">
+                    مدرسة الإخلاص هي مؤسسة تعليمية سودانية رائدة تأسست عام 2000، وتتميز بتقديم تعليم عالي الجودة
+                    يتوافق مع المناهج السودانية المعتمدة من وزارة التربية والتعليم.
+                </p>
+                <p class="about-description">
+                    نحن نؤمن بأهمية التعليم الشامل الذي يركز على الجوانب الأكاديمية والاجتماعية والنفسية للطلاب،
+                    ونسعى لإعداد جيل قادر على مواجهة تحديات المستقبل بثقة وكفاءة.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="quiz-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">الاختبارات التفاعلية</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div id="quiz-setup" class="quiz-setup">
+                <div class="quiz-form">
+                    <div class="form-group">
+                        <label for="stage">المرحلة الدراسية</label>
+                        <select id="stage" class="form-control">
+                            <option value="">اختر المرحلة</option>
+                            <option value="primary">المرحلة الابتدائية</option>
+                            <option value="middle">المرحلة المتوسطة</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">المادة الدراسية</label>
+                        <select id="subject" class="form-control" disabled>
+                            <option value="">اختر المادة</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="difficulty">درجة الصعوبة</label>
+                        <select id="difficulty" class="form-control">
+                            <option value="easy">سهل</option>
+                            <option value="medium" selected>متوسط</option>
+                            <option value="hard">صعب</option>
+                        </select>
+                    </div>
+                    
+                    <button onclick="startQuiz()" class="btn btn-primary">
+                        <i class="fas fa-play"></i> بدء الاختبار
+                    </button>
+                </div>
+            </div>
+            
+            <div id="quiz-container" class="quiz-container">
+                <div class="quiz-header">
+                    <div class="quiz-info">
+                        <span id="quiz-progress">1/10</span>
+                        <span id="quiz-timer">00:00</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="quiz-body">
+                    <div id="question-container" class="question-container">
+                        <!-- Question will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="quiz-footer">
+                    <button onclick="previousQuestion()" class="btn btn-secondary" id="prev-btn" disabled>
+                        <i class="fas fa-arrow-right"></i> السؤال السابق
+                    </button>
+                    <button onclick="nextQuestion()" class="btn btn-primary" id="next-btn">
+                        السؤال التالي <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button onclick="submitQuiz()" class="btn btn-success" id="submit-btn" style="display: none;">
+                        <i class="fas fa-check"></i> إنهاء الاختبار
+                    </button>
+                </div>
+            </div>
+            
+            <div id="quiz-result" class="quiz-result">
+                <div class="result-content">
+                    <div class="result-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h2 class="result-title">نتيجة الاختبار</h2>
+                    <div class="result-score">
+                        <span id="score-percentage">0%</span>
+                    </div>
+                    <div class="result-details">
+                        <div class="detail-item">
+                            <span>الإجابات الصحيحة:</span>
+                            <span id="correct-answers">0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>الإجابات الخاطئة:</span>
+                            <span id="wrong-answers">0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>المدة الزمنية:</span>
+                            <span id="time-taken">00:00</span>
+                        </div>
+                    </div>
+                    <div class="result-message" id="result-message">
+                        <!-- Message will be displayed here -->
+                    </div>
+                    <button onclick="resetQuiz()" class="btn btn-primary">
+                        <i class="fas fa-redo"></i> اختبار جديد
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <span class="logo-text">مدرسة الإخلاص</span>
+                    </div>
+                    <p class="footer-description">
+                        مؤسسة تعليمية رائدة تقدم تعليماً متميزاً لجميع المراحل الدراسية
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#quiz">الاختبارات</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 مدرسة الإخلاص. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===================================
+        // 1. DATABASE (Question Bank)
+        // ===================================
+        const questionBank = {
+            primary: {
+                mathematics: {
+                    easy: [{ question: "ما هو ناتج جمع 2 + 3؟", options: ["4", "5", "6", "7"], correct: 1 }, { question: "كم عدد أضلاع المثلث؟", options: ["2", "3", "4", "5"], correct: 1 }, { question: "ما هو العدد الذي يأتي بعد 9؟", options: ["8", "10", "11", "12"], correct: 1 }, { question: "كم عدد أيام الأسبوع؟", options: ["5", "6", "7", "8"], correct: 2 }, { question: "ما هو ناتج 5 - 2؟", options: ["2", "3", "4", "5"], correct: 1 }],
+                    medium: [{ question: "ما هو ناتج ضرب 6 × 4؟", options: ["20", "24", "28", "30"], correct: 1 }, { question: "ما هو ناتج 15 ÷ 3؟", options: ["3", "4", "5", "6"], correct: 2 }, { question: "كم عدد أضلاع المربع؟", options: ["2", "3", "4", "5"], correct: 2 }, { question: "ما هو العدد الزوجي التالي لـ 8؟", options: ["9", "10", "11", "12"], correct: 1 }, { question: "ما هو ناتج 7 + 8؟", options: ["13", "14", "15", "16"], correct: 2 }],
+                    hard: [{ question: "ما هو ناتج 12 × 8؟", options: ["88", "96", "104", "112"], correct: 1 }, { question: "ما هو باقي قسمة 17 ÷ 5؟", options: ["1", "2", "3", "4"], correct: 1 }, { question: "ما هو مربع العدد 9؟", options: ["18", "27", "81", "72"], correct: 2 }, { question: "كم هو ناتج (5 + 3) × 2؟", options: ["13", "16", "18", "20"], correct: 1 }, { question: "ما هو العدد الأولي التالي لـ 7؟", options: ["8", "9", "10", "11"], correct: 3 }]
+                },
+                arabic: {
+                    easy: [{ question: "ما هو الحرف الأول في كلمة 'مدرسة'؟", options: ["م", "د", "ر", "س"], correct: 0 }, { question: "كم عدد حروف كلمة 'قلم'؟", options: ["2", "3", "4", "5"], correct: 1 }, { question: "ما هو عكس كلمة 'كبير'؟", options: ["طويل", "قصير", "صغير", "ضخم"], correct: 2 }, { question: "أي من هذه حروف علة؟", options: ["ب", "ت", "ا", "د"], correct: 2 }, { question: "ما هو جمع كلمة 'ولد'؟", options: ["أولاد", "أطفال", "كل ما سبق"], correct: 2 }],
+                    medium: [{ question: "ما هو المضارع من الفعل 'كتب'؟", options: ["يكتب", "كتب", "اكتب", "كتاب"], correct: 0 }, { question: "أي من هذه كلمة تنتهي بألف لينة؟", options: ["كتاب", "قلم", "مدرسة", "بيت"], correct: 0 }, { question: "ما هو نوع كلمة 'جميل'؟", options: ["اسم", "فعل", "حرف", "ظرف"], correct: 0 }, { question: "ما هو المفرد من 'كتب'؟", options: ["كتاب", "كاتب", "مكتبة", "يكتب"], correct: 0 }, { question: "أي من هذه علامات ترقيم؟", options: ["أ", "ب", "؟", "د"], correct: 2 }],
+                    hard: [{ question: "ما هو المصدر من الفعل 'استخرج'؟", options: ["خرج", "استخراج", "خروج", "تخرج"], correct: 1 }, { question: "ما هو نوع 'كان' في الجملة: 'كان الطالب مجتهداً'؟", options: ["فعل متعدي", "فعل لازم", "فعل ناسخ", "حرف"], correct: 2 }, { question: "ما هو إعراب كلمة 'الطلاب' في جملة 'جاء الطلاب'؟", options: ["مبتدأ", "فاعل", "مفعول به", "مضاف إليه"], correct: 1 }, { question: "أي من هذه كلمة همزة قطع؟", options: ["استخدام", "إيمان", "اجتماع", "اشتراك"], correct: 1 }, { question: "ما هو التصغير الصحيح لكلمة 'كتاب'؟", options: ["كتيب", "كتائب", "كتاب", "كتيبان"], correct: 0 }]
+                },
+                english: {
+                    easy: [{ question: "What is the plural of 'cat'?", options: ["cats", "cat", "cates", "cattes"], correct: 0 }, { question: "How many days are in a week?", options: ["5", "6", "7", "8"], correct: 2 }, { question: "What color is the sky?", options: ["red", "blue", "green", "yellow"], correct: 1 }, { question: "What is 2 + 3?", options: ["4", "5", "6", "7"], correct: 1 }, { question: "Which is a vowel?", options: ["b", "c", "a", "d"], correct: 2 }],
+                    medium: [{ question: "What is the past tense of 'go'?", options: ["goes", "went", "gone", "going"], correct: 1 }, { question: "Which is a noun?", options: ["run", "beautiful", "book", "quickly"], correct: 2 }, { question: "What is the opposite of 'hot'?", options: ["warm", "cool", "cold", "dry"], correct: 2 }, { question: "How many months are in a year?", options: ["10", "11", "12", "13"], correct: 2 }, { question: "Which is a question word?", options: ["and", "but", "what", "or"], correct: 2 }],
+                    hard: [{ question: "What is the comparative form of 'good'?", options: ["gooder", "better", "best", "more good"], correct: 1 }, { question: "Which sentence is in passive voice?", options: ["The cat chased the mouse", "The mouse was chased by the cat", "The cat is chasing the mouse", "The mouse chases the cat"], correct: 1 }, { question: "What is the correct preposition: 'I'm good ___ mathematics'?", options: ["in", "at", "on", "with"], correct: 1 }, { question: "Which is a modal verb?", options: ["run", "can", "running", "ran"], correct: 1 }, { question: "What is the correct form: 'If I ___ rich, I would travel'?", options: ["am", "was", "were", "will be"], correct: 2 }]
+                },
+                science: {
+                    easy: [{ question: "كم عدد أرجل الإنسان؟", options: ["1", "2", "3", "4"], correct: 1 }, { question: "ما هو لون السماء في يوم مشمس؟", options: ["أحمر", "أخضر", "أزرق", "أصفر"], correct: 2 }, { question: "أي من هذه مصادر للضوء؟", options: ["الشمس", "القمر", "الأرض", "النجوم"], correct: 0 }, { question: "كم عدد فصول السنة؟", options: ["2", "3", "4", "5"], correct: 2 }, { question: "ماذا يحتاج الإنسان للعيش؟", options: ["الماء فقط", "الطعام فقط", "الماء والهواء", "الماء والهواء والطعام"], correct: 3 }],
+                    medium: [{ question: "ما هي وحدة قياس درجة الحرارة؟", options: ["متر", "كيلوجرام", "سيلسيوس", "ثانية"], correct: 2 }, { question: "أي من هذه جزء من النبات؟", options: ["الجذور", "الأوراق", "الأزهار", "كل ما سبق"], correct: 3 }, { question: "ما هو أكبر كوكب في المجموعة الشمسية؟", options: ["الأرض", "المريخ", "المشتري", "زحل"], correct: 2 }, { question: "كم عدد عظام الهيكل العظمي البشري؟", options: ["106", "206", "306", "406"], correct: 1 }, { question: "ما هو الغاز الذي نستنشقه؟", options: ["ثاني أكسيد الكربون", "النيتروجين", "الأكسجين", "الهيدروجين"], correct: 2 }],
+                    hard: [{ question: "ما هي سرعة الضوء؟", options: ["300,000 كم/ث", "150,000 كم/ث", "500,000 كم/ث", "1,000,000 كم/ث"], correct: 0 }, { question: "ما هو الرقم الذري للهيدروجين؟", options: ["1", "2", "3", "4"], correct: 0 }, { question: "ما هي أكبر غدة في جسم الإنسان؟", options: ["الغدة الدرقية", "الكبد", "البنكرياس", "الغدة النخامية"], correct: 1 }, { question: "كم يبلغ وزن الدم في جسم الإنسان البالغ؟", options: ["2-3 كجم", "4-5 كجم", "6-7 كجم", "8-9 كجم"], correct: 1 }, { question: "ما هي وظيفة الكلوروفيل في النبات؟", options: ["التنفس", "البناء الضوئي", "النمو", "التكاثر"], correct: 1 }]
+                }
+            },
+            middle: {
+                mathematics: {
+                    easy: [{ question: "ما هو ناتج (-3) + 5؟", options: ["2", "8", "-2", "-8"], correct: 0 }, { question: "ما هو الجذر التربيعي للعدد 64؟", options: ["6", "7", "8", "9"], correct: 2 }, { question: "كم يساوي 15% من 200؟", options: ["15", "20", "30", "40"], correct: 2 }, { question: "ما هو محيط مربع طول ضلعه 5 سم؟", options: ["10 سم", "15 سم", "20 سم", "25 سم"], correct: 2 }, { question: "ما هو ناتج 2³ (2 للقوة 3)؟", options: ["6", "8", "9", "12"], correct: 1 }],
+                    medium: [{ question: "حل المعادلة: 2x + 5 = 15", options: ["x = 5", "x = 10", "x = 7.5", "x = 3"], correct: 0 }, { question: "ما هي مساحة دائرة نصف قطرها 7 سم؟ (π = 22/7)", options: ["44 سم²", "154 سم²", "77 سم²", "22 سم²"], correct: 1 }, { question: "إذا كان المجموع الكلي لزوايا المثلث 180°، فما هي قيمة الزاوية الثالثة إذا كانت الزاويتان الأخريان 60° و 80°؟", options: ["30°", "40°", "50°", "60°"], correct: 1 }, { question: "ما هو العدد التالي في المتتالية: 2, 6, 12, 20, ...؟", options: ["28", "30", "32", "34"], correct: 1 }, { question: "ما هو البسط المبسط للكسر 24/36؟", options: ["2/3", "3/4", "4/5", "6/9"], correct: 0 }],
+                    hard: [{ question: "ما هو قيمة س في المعادلة التربيعية: x² - 5x + 6 = 0؟", options: ["x = 2, 3", "x = -2, -3", "x = 1, 6", "لا يوجد حل حقيقي"], correct: 0 }, { question: "ما هو المضروب 5! (5 factorial)؟", options: ["60", "80", "100", "120"], correct: 3 }, { question: "ما هو محيط شكل من 6 أضلاع منتظمة (سداسي منتظم) طول ضلعه 4 سم؟", options: ["16 سم", "20 سم", "24 سم", "28 سم"], correct: 2 }, { question: "ما هو لوغاريتم العدد 100 للأساس 10؟", options: ["1", "2", "10", "100"], correct: 1 }, { question: "إذا كان متوسط الأعداد 5 أعداد هو 12، فما هو مجموع هذه الأعداد؟", options: ["48", "60", "72", "84"], correct: 1 }]
+                },
+                arabic: {
+                    easy: [{ question: "اختر الجملة الصحيحة إملائياً:", options: ["ذهب الطالبُ الى المدرسة", "ذهب الطالبَ إلى المدرسة", "ذهب الطالبِ إلى المدرسة", "ذهب الطالبُ إلى المدرسة"], correct: 3 }, { question: "ما هو عكس كلمة 'نافع'؟", options: ["ضار", "جميل", "طيب", "جديد"], correct: 0 }, { question: "أي من التالية همزة قطع؟", options: ["استخرج", "اجتماع", "امتحان", "إيمان"], correct: 3 }, { question: "ما هو جمع 'مؤنث'؟", options: ["مؤنثون", "مؤنثات", "مآنيث", "كل ما سبق صحيح"], correct: 2 }, { question: "ما هو المضارع من 'أعطى'؟", options: ["يعطي", "أعطي", "يعطى", "يعطو"], correct: 0 }],
+                    medium: [{ question: "ما هو إعراب 'الطالبَ' في جملة: 'رأيتُ الطالبَ مجتهداً'؟", options: ["مفعول به", "فاعل", "مبتدأ", "مضاف إليه"], correct: 0 }, { question: "اختر الجملة التي لا تحتوي على خطأ:", options: ["الطلابُ مجتهدون", "الطلابِ مجتهدون", "الطلابَ مجتهدون", "الطلابُ مجتهدين"], correct: 0 }, { question: "ما هو نوع 'أن' في جملة: 'أريد أن أذاكر'؟", options: ["مصدرية", "تفسيرية", "زائدة", "شرطية"], correct: 0 }, { question: "ما هو تصغير كلمة 'كتاب'؟", options: ["كتيب", "كتبين", "كوتب", "كتائب"], correct: 0 }, { question: "ما هو اسم الآلة من 'حفر'؟", options: ["محفار", "حفارة", "مِحْفَر", "كلها صحيحة"], correct: 3 }],
+                    hard: [{ question: "ما هو نوع الأسلوب في قوله تعالى: 'أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ'؟", options: ["استفهام", "تقرير", "استفهام تقريري", "نداء"], correct: 2 }, { question: "ما هو إعراب 'مُخْلِصِينَ' في قوله تعالى: 'وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ'؟", options: ["حال", "تمييز", "مفعول لأجله", "نعت لفاعل مضمر"], correct: 0 }, { question: "ما هو الفعل الذي يتعدى إلى مفعولين بنفسه؟", options: ["أعطى", "أعطى", "ظن", "كل ما سبق"], correct: 2 }, { question: "أي من هذه الكلمات تنتهي بألف لينة؟", options: ["هُدى", "عَصا", "مَوْلَى", "كل ما سبق"], correct: 3 }, { question: "ما هو الفعل الأجوف؟", options: ["علم", "قال", "كرم", "ذهب"], correct: 1 }]
+                },
+                english: {
+                    easy: [{ question: "Choose the correct verb: 'She ___ to school every day.'", options: ["go", "goes", "going", "went"], correct: 1 }, { question: "What is the past participle of 'write'?", options: ["wrote", "written", "writing", "write"], correct: 1 }, { question: "Which is a preposition?", options: ["run", "under", "quickly", "beautiful"], correct: 1 }, { question: "What is the plural of 'child'?", options: ["childs", "children", "childes", "child"], correct: 1 }, { question: "Complete the sentence: 'I have ___ apples.'", options: ["a", "an", "some", "is"], correct: 2 }],
+                    medium: [{ question: "Which sentence is grammatically correct?", options: ["Neither of the boys are here.", "Neither of the boys is here.", "Neither of the boys were here.", "Neither of the boys have been here."], correct: 1 }, { question: "What is the correct form: 'If I ___ you, I would study harder.'", options: ["am", "was", "were", "will be"], correct: 2 }, { question: "Which is a compound adjective?", options: ["well-known", "very good", "extremely tall", "quite expensive"], correct: 0 }, { question: "Identify the type of clause: 'The book that I read was interesting.'", options: ["Noun clause", "Adjective clause", "Adverb clause", "Independent clause"], correct: 1 }, { question: "What is the correct reported speech: He said, 'I am tired now.'", options: ["He said that he was tired then.", "He said that he is tired now.", "He said that I was tired then.", "He said that he am tired now."], correct: 0 }],
+                    hard: [{ question: "Which sentence uses the subjunctive mood correctly?", options: ["I recommend that he studies hard.", "I recommend that he study hard.", "I recommend that he is studying hard.", "I recommend that he studied hard."], correct: 1 }, { question: "What is the correct inversion: 'Not only ___ pass the exam, but he also got the highest score.'", options: ["he did", "did he", "he was", "was he"], correct: 1 }, { question: "Identify the error: 'The professor, along with his students, are attending the conference.'", options: ["The professor", "along with", "are", "attending"], correct: 2 }, { question: "Which is a dangling modifier?", options: ["Walking down the street, the car hit me.", "While walking down the street, I was hit by a car.", "The car hit me while I was walking down the street.", "I was hit by the car while walking down the street."], correct: 0 }, { question: "What is the correct punctuation for the sentence: 'She is a doctor ___ she is also a researcher.'", options: [",", ";", ":", "-"], correct: 1 }]
+                },
+                physics: {
+                    easy: [{ question: "ما هي وحدة قياس القوة؟", options: ["جول", "نيوتن", "واط", "باسكال"], correct: 1 }, { question: "ما هو السرعة إذا تحرك جسم مسافة 100 متر في 20 ثانية؟", options: ["2 م/ث", "5 م/ث", "10 م/ث", "20 م/ث"], correct: 1 }, { question: "ما هو الجهاز المستخدم لقياس التيار الكهربائي؟", options: ["الفولتميتر", "الأميتر", "الأوميتر", "البارومتر"], correct: 1 }, { question: "ما هو القانون الذي يصف العلاقة بين الجهد والتيار والمقاومة؟", options: ["قانون نيوتن", "قانون أوم", "قانون كولوم", "قانون فاراداي"], correct: 1 }, { question: "ما هي وحدة قياس الطاقة؟", options: ["نيوتن", "واط", "جول", "باسكال"], correct: 2 }],
+                    medium: [{ question: "إذا كانت كتلة جسم 10 كجم وتسارعه 2 م/ث²، فما هي القوة المؤثرة عليه؟", options: ["5 نيوتن", "10 نيوتن", "20 نيوتن", "40 نيوتن"], correct: 2 }, { question: "ما هو الضغط عند نقطة تحت عمق 10 أمتار في الماء (كثافة الماء 1000 كجم/م³)؟", options: ["100,000 باسكال", "98,000 باسكال", "10,000 باسكال", "1,000 باسكال"], correct: 1 }, { question: "ما هي العدسة التي تستخدم لتصحيح قصر النظر؟", options: ["عدسة محدبة", "عدسة مقعرة", "عدسة اسطوانية", "لا تستخدم عدسة"], correct: 1 }, { question: "ما هو مبدأ عمل المحول الكهربائي؟", options: ["قانون أوم", "قانون كولوم", "قانون فاراداي للحث الكهرومغناطيسي", "قانون هوك"], correct: 2 }, { question: "ما هي ظاهرة انحناء الضوء عند مروره بين وسطين مختلفين؟", options: ["الانعكاس", "الانكسار", "الحيود", "التداخل"], correct: 1 }],
+                    hard: [{ question: "ما هو العزم الزاوي لجسم كتلته 2 كجم يدور في دائرة نصف قطرها 3 متر بسرعة زاوية 4 راديان/ث؟", options: ["24 كجم·م²/ث", "48 كجم·م²/ث", "12 كجم·م²/ث", "6 كجم·م²/ث"], correct: 0 }, { question: "ما هي الطاقة الحركية لجسم كتلته 5 كجم يتحرك بسرعة 10 م/ث؟", options: ["50 جول", "100 جول", "250 جول", "500 جول"], correct: 2 }, { question: "كم يبلغ الشحنة الكهربائية التي تمر في موصل إذا مر تيار 2 أمبير لمدة 10 ثوانٍ؟", options: ["5 كولوم", "10 كولوم", "20 كولوم", "0.2 كولوم"], correct: 2 }, { question: "ما هو فرق الجهد بين نقطتين إذا انتقل شحنة مقدارها 5 كولوم بينهما وأنجزت شغل 100 جول؟", options: ["5 فولت", "10 فولت", "20 فولت", "500 فولت"], correct: 2 }, { question: "ما هو المبدأ الفيزيائي الذي يفسر طفو السفن؟", options: ["قانون نيوتن الأول", "قانون أرخميدس", "قانون باسكال", "قانون برنولي"], correct: 1 }]
+                },
+                chemistry: {
+                    easy: [{ question: "ما هو الرقم الذري للأكسجين؟", options: ["6", "7", "8", "16"], correct: 2 }, { question: "ما هو الرمز الكيميائي للذهب؟", options: ["Go", "Gd", "Au", "Ag"], correct: 2 }, { question: "كم عدد الروابط في جزيء الماء (H₂O)؟", options: ["1", "2", "3", "4"], correct: 1 }, { question: "ما هو المركب الكيميائي للماء؟", options: ["H₂O", "CO₂", "O₂", "NaCl"], correct: 0 }, { question: "ما هو pH للمحاليل القاعدية؟", options: ["أقل من 7", "يساوي 7", "أكبر من 7", "يعتمد على درجة الحرارة"], correct: 2 }],
+                    medium: [{ question: "ما هي كتلة المول الواحد من الماء (H₂O) تقريباً؟", options: ["10 جم", "18 جم", "20 جم", "28 جم"], correct: 1 }, { question: "ما هو التفاعل الذي يطلق طاقة؟", options: ["ماص للحرارة", "طارد للحرارة", "حفاز", "تعادل"], correct: 1 }, { question: "أي من هذه لا يعتبر من العناصر النادرة؟", options: ["الهيليوم", "النيون", "الأرجون", "النيتروجين"], correct: 3 }, { question: "ما هو اسم المركب CH₄؟", options: ["الميثان", "الأيثان", "البروبان", "البوتان"], correct: 0 }, { question: "ما هو نوع الرابطة في جزيء كلوريد الصوديوم (NaCl)؟", options: ["تساهمية", "أيونية", "فلزية", "هيدروجينية"], correct: 1 }],
+                    hard: [{ question: "كم عدد الإلكترونات في غاز النبيل النيون (Ne)؟", options: ["8", "10", "12", "20"], correct: 1 }, { question: "ما هو التفاعل المتوازن لاحتراق الميثان (CH₄)؟", options: ["CH₄ + O₂ → CO₂ + H₂O", "CH₄ + 2O₂ → CO₂ + 2H₂O", "2CH₄ + O₂ → 2CO₂ + H₂O", "CH₄ + O₂ → CO + H₂O"], correct: 1 }, { question: "ما هو التركيز المولاري لمحلول يحتوي على 58.5 جم من NaCl في 2 لتر من الماء؟ (Na=23, Cl=35.5)", options: ["0.5 مولار", "1 مولار", "2 مولار", "4 مولار"], correct: 0 }, { question: "ما هو قانون الغاز المثالي؟", options: ["P₁V₁ = P₂V₂", "PV = nRT", "V/T = k", "P₁/T₁ = P₂/T₂"], correct: 1 }, { question: "أي من هذه المجموعات الوظيفية في الأحماض الكربوكسيلية؟", options: ["-OH", "-COOH", "-NH₂", "-CHO"], correct: 1 }]
+                },
+                biology: {
+                    easy: [{ question: "ما هو العضو الرئيسي في جهاز الدوران؟", options: ["الرئتان", "القلب", "الكبد", "المعدة"], correct: 1 }, { question: "كم عدد الكروموسومات في الخلية البشرية الطبيعية؟", options: ["23", "46", "69", "92"], correct: 1 }, { question: "ما هي العملية التي تصنع بها النباتات غذاءها؟", options: ["التنفس", "البناء الضوئي", "النتح", "الإخراج"], correct: 1 }, { question: "أي من هذه فقاريات؟", options: ["العنكبوت", "الحوت", "الحشرة", "القشريات"], correct: 1 }, { question: "ما هو اسم أكبر دماغ في جسم الإنسان؟", options: ["المخ", "المخيخ", "النخاع الشوكي", "القنطرة"], correct: 0 }],
+                    medium: [{ question: "ما هي المرحلة الأولى في الانقسام المتساوي (الميتوز)؟", options: ["الطور الاستوائي", "الطور التمهيدي", "الطور الانفصالي", "الطور النهائي"], correct: 1 }, { question: "أي من هذه ليست وظيفة للكبد؟", options: ["إفراز الصفراء", "تخزين الجلوكوز", "تنقية الدم", "ضخ الدم"], correct: 3 }, { question: "ما هو اسم الهرمون الذي ينظم سكر الدم؟", options: ["الأدرينالين", "الإنسولين", "الثيروكسين", "النمو"], correct: 1 }, { question: "أين يحدث الهضم الأولي للكربوهيدرات؟", options: ["المعدة", "الأمعاء الدقيقة", "الفم", "المريء"], correct: 2 }, { question: "ما هي الوحدة الوظيفية في الكلية؟", options: ["النفيرون", "الحويصلة الهوائية", "الساركومير", "النيورون"], correct: 0 }],
+                    hard: [{ question: "ما هي المرحلة التي يتم فيها تضاعف المادة الوراثية (DNA)؟", options: ["G1", "S", "G2", "M"], correct: 1 }, { question: "ما هو المسار الذي تنتقل فيه الإشارات العصبية؟", options: ["الدورة الدموية", "الجهاز اللمفاوي", "المشبك العصبي", "الجهاز الهضمي"], correct: 2 }, { question: "أي من هذه أنزيمات هضمية في المعدة؟", options: ["الأميليز", "الليباز", "البيبسين", "اللاكتاز"], correct: 2 }, { question: "ما هي النسبة المئوية للأكسجين في الهواء الذي نزفره؟", options: ["16%", "21%", "12%", "8%"], correct: 0 }, { question: "أي من هذه عمليات لا تتطلب طاقة (لا إرادية)؟", options: ["التنفس الخلوي", "البناء الضوئي", "انتشار الأكسجين", "كل ما سبق"], correct: 3 }]
+                }
+            }
+        };
+
+        // ===================================
+        // 2. QUIZ LOGIC
+        // ===================================
+        let currentQuiz = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timer;
+        let seconds = 0;
+        let selectedAnswers = [];
+
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Quiz script: DOM is ready.");
+
+            const stageSelect = document.getElementById('stage');
+            const subjectSelect = document.getElementById('subject');
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (!stageSelect || !subjectSelect) {
+                console.error("Quiz Error: Could not find stage or subject select elements.");
+                return;
+            }
+
+            // Event Listeners
+            stageSelect.addEventListener('change', handleStageChange);
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+
+            console.log("Quiz script: Initialized successfully.");
+        });
+
+        function handleStageChange() {
+            const selectedStage = this.value;
+            const subjectSelect = document.getElementById('subject');
+            
+            subjectSelect.innerHTML = '<option value="">اختر المادة</option>';
+            subjectSelect.disabled = true;
+
+            if (!selectedStage) return;
+
+            try {
+                if (!questionBank || !questionBank[selectedStage]) {
+                    throw new Error(`Stage "${selectedStage}" not found.`);
+                }
+
+                const subjects = Object.keys(questionBank[selectedStage]);
+                if (subjects.length === 0) {
+                    throw new Error(`No subjects found for stage "${selectedStage}".`);
+                }
+
+                subjects.forEach(subject => {
+                    const option = document.createElement('option');
+                    option.value = subject;
+                    option.textContent = getSubjectArabicName(subject);
+                    subjectSelect.appendChild(option);
+                });
+
+                subjectSelect.disabled = false;
+                console.log(`Subjects populated for stage: ${selectedStage}`);
+
+            } catch (error) {
+                console.error("Failed to populate subjects:", error);
+                showNotification('حدث خطأ أثناء تحميل المواد', 'error');
+                // Add an error option to the dropdown for user feedback
+                const errorOption = document.createElement('option');
+                errorOption.textContent = "-- خطأ في تحميل المواد --";
+                subjectSelect.appendChild(errorOption);
+            }
+        }
+
+        function getSubjectArabicName(subject) {
+            const names = {
+                mathematics: 'الرياضيات', arabic: 'اللغة العربية', english: 'اللغة الإنجليزية',
+                science: 'العلوم', history: 'التاريخ', geography: 'الجغرافيا',
+                religious_studies: 'التربية الإسلامية', physics: 'الفيزياء',
+                chemistry: 'الكيمياء', biology: 'الأحياء'
+            };
+            return names[subject] || subject;
+        }
+
+        function startQuiz() {
+            const stage = document.getElementById('stage').value;
+            const subject = document.getElementById('subject').value;
+            const difficulty = document.getElementById('difficulty').value;
+
+            if (!stage || !subject) {
+                showNotification('الرجاء اختيار المرحلة والمادة', 'error');
+                return;
+            }
+
+            try {
+                const questions = [...questionBank[stage][subject][difficulty]];
+                if (questions.length === 0) {
+                    throw new Error('No questions found for the selected criteria.');
+                }
+
+                currentQuiz = shuffleArray(questions).slice(0, 10);
+                currentQuestionIndex = 0;
+                score = 0;
+                seconds = 0;
+                selectedAnswers = [];
+
+                document.getElementById('quiz-setup').style.display = 'none';
+                document.getElementById('quiz-container').style.display = 'block';
+                document.getElementById('quiz-result').style.display = 'none';
+
+                loadQuestion();
+                startTimer();
+
+            } catch (error) {
+                console.error("Failed to start quiz:", error);
+                showNotification('لا توجد أسئلة متاحة لهذا الاختيار', 'error');
+            }
+        }
+
+        function loadQuestion() {
+            const question = currentQuiz[currentQuestionIndex];
+            const questionContainer = document.getElementById('question-container');
+            
+            questionContainer.innerHTML = `
+                <div class="question-text">${question.question}</div>
+                <div class="options-grid">
+                    ${question.options.map((option, index) => `
+                        <div class="option-item" onclick="selectAnswer(${index})">
+                            <span class="option-text">${option}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            updateProgress();
+            updateButtons();
+        }
+
+        function selectAnswer(answerIndex) {
+            const options = document.querySelectorAll('.option-item');
+            options.forEach(option => option.classList.remove('selected'));
+            options[answerIndex].classList.add('selected');
+            selectedAnswers[currentQuestionIndex] = answerIndex;
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < currentQuiz.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            } else {
+                submitQuiz();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+        function submitQuiz() {
+            stopTimer();
+            score = 0;
+            currentQuiz.forEach((question, index) => {
+                if (selectedAnswers[index] === question.correct) {
+                    score++;
+                }
+            });
+            showResults();
+        }
+
+        function showResults() {
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('quiz-result').style.display = 'block';
+
+            const percentage = Math.round((score / currentQuiz.length) * 100);
+            const correctAnswers = score;
+            const wrongAnswers = currentQuiz.length - score;
+            const minutes = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+
+            document.getElementById('score-percentage').textContent = percentage + '%';
+            document.getElementById('correct-answers').textContent = correctAnswers;
+            document.getElementById('wrong-answers').textContent = wrongAnswers;
+            document.getElementById('time-taken').textContent = `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
+            const resultScore = document.querySelector('.result-score');
+            if(resultScore) {
+                resultScore.style.background = `conic-gradient(var(--success-color) ${percentage * 3.6}deg, var(--light-color) 0deg)`;
+            }
+
+            const messageEl = document.getElementById('result-message');
+            let message, messageClass;
+            if (percentage >= 90) { message = 'ممتاز! أداء رائع جداً!'; messageClass = 'success'; }
+            else if (percentage >= 70) { message = 'جيد جداً! واصل التميز!'; messageClass = 'good'; }
+            else if (percentage >= 50) { message = 'جيد! يمكنك التحسن أكثر!'; messageClass = 'average'; }
+            else { message = 'تحتاج للمزيد من الدراسة والممارسة!'; messageClass = 'poor'; }
+
+            messageEl.textContent = message;
+            messageEl.className = 'result-message ' + messageClass;
+        }
+
+        function resetQuiz() {
+            document.getElementById('quiz-result').style.display = 'none';
+            document.getElementById('quiz-setup').style.display = 'block';
+            document.getElementById('stage').value = '';
+            document.getElementById('subject').innerHTML = '<option value="">اختر المادة</option>';
+            document.getElementById('subject').disabled = true;
+            document.getElementById('difficulty').value = 'medium';
+            currentQuiz = []; currentQuestionIndex = 0; score = 0; seconds = 0; selectedAnswers = [];
+        }
+
+        // Helper Functions
+        function shuffleArray(array) { for (let i = array.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [array[i], array[j]] = [array[j], array[i]]; } return array; }
+        function updateProgress() { const progress = ((currentQuestionIndex + 1) / currentQuiz.length) * 100; document.getElementById('progress-fill').style.width = progress + '%'; document.getElementById('quiz-progress').textContent = `${currentQuestionIndex + 1}/${currentQuiz.length}`; }
+        function updateButtons() { const prevBtn = document.getElementById('prev-btn'); const nextBtn = document.getElementById('next-btn'); const submitBtn = document.getElementById('submit-btn'); prevBtn.disabled = currentQuestionIndex === 0; if (currentQuestionIndex === currentQuiz.length - 1) { nextBtn.style.display = 'none'; submitBtn.style.display = 'block'; } else { nextBtn.style.display = 'block'; submitBtn.style.display = 'none'; } }
+        function startTimer() { timer = setInterval(() => { seconds++; const mins = Math.floor(seconds / 60); const secs = seconds % 60; document.getElementById('quiz-timer').textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`; }, 1000); }
+        function stopTimer() { clearInterval(timer); }
+        function showNotification(message, type = 'info') { const notification = document.createElement('div'); notification.className = `notification notification-${type}`; notification.textContent = message; document.body.appendChild(notification); setTimeout(() => { notification.style.animation = 'slideUp 0.3s ease'; setTimeout(() => { if (document.body.contains(notification)) document.body.removeChild(notification); }, 300); }, 3000); }
+
+        // ===================================
+        // 3. MAIN SCRIPT (for smooth scrolling, etc.)
+        // ===================================
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+    </script>
+</body>
+  </html>
